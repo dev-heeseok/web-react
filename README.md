@@ -60,13 +60,67 @@ npm create-react-app
 // App Initial Setting
 create-react-app ${react-app-folder}
 
-// 서비스 실행 후 web browser 를 이용하여 app 실행
-npm start
+// 서비스 실행 후 web browser 를 이용하여 app 실행 (개발자 모드)
+npm run start
 ```
 
 ## How to use
 
-***Unknown***
+개발자 버전으로 서비스를 실행하게 되면 불필요한 옵션으로 인해 용량이 커지거나 보안적인 문제가 발생할 수 있다. 배포를 위한 Application 은 build 옵션을 이용하여 최적화된 상태로 서비스를 해야만 한다. build 된 application 은 npm 에서 제공하고 있는 serve 패키지를 이용하여 웹 서비스를 수행 할 수 있다.
+
+```cmd
+// Application Build
+npm run build
+
+// Application Service Package Install
+npm install -g serve
+
+// Application Service Start
+serve -s ${application-root-folder}
+```
+
+## Github Pages Hosting
+
+React Application 은 Github Pages 를 이용하여 정적인 페이지 서비스를 시작할 수 있다. 서비스를 수행하기 위해서는 gh-pages 패키지가 필요하며, 페이지를 호스팅 하기 위해서는 별도의 root branch 가 필요하다. Github 에서는 기본값으로는 gh-pages branch 로 설정되어 있다. tutorial 에서도 gh-pages branch 를 이용하여 서비스를 실행 할 예정이다. 서비스가 시작되면 https://dev-heeseok.github.io/web-react/ 를 통해 작성한 React Application 을 확인할 수 있다. 
+
+### Github Repository 설정하기
+
+Setting > Pages 에서 gh-pages branch 를 서비스 하도록 설정해야 한다. 서비스의 상태 및 진행 사항을 확인하는 방법은 Action 의 workflows 를 통해 확인할 수 있다. 
+
+#### 패키지 설치
+
+```cmd
+// gh-pages 패키지 설치
+npm install --save gh-pages
+```
+
+#### Property 설정하기
+
+```json
+// Package.json 에 아래 항목 추가
+{
+    "hompage": "https://${user-name}.github.io/${repository-name}/",
+    "scripts": {
+        "predeploy": "npm run build",
+        "deploy", "gh-pages -d build"
+    }
+}
+```
+#### 환경설정
+
+Settings > Pages 에서 gh-pages branch 를 이용하여 페이지를 호스팅 할 수 있도록 설정을 변경 후 데이터를 저장해야 한다. gh-pages branch 는 deploy 를 실행하면 Github 가 branch 를 생성해 준다. 
+
+![image](https://user-images.githubusercontent.com/97526196/165783992-5bfb25db-b842-423d-9bc1-027d4c06b77e.png)
+
+#### Deploy
+
+Deploy 를 실행하면 Application 의 Build 가 수행된다. Build 가 완료되면 gh-pages branch 가 생성 (branch 가 없다면) 되며 Build 된 Application File 들이 자동으로 Update 된다.
+
+```cmd
+npm run deploy
+```
+
+![image](https://user-images.githubusercontent.com/97526196/165790825-94e44712-f18c-441a-a1b5-674e75b90e5a.png)
 
 ## Sample Codes
 
