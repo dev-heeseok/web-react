@@ -102,7 +102,7 @@ npm install --save gh-pages
     "hompage": "https://${user-name}.github.io/${repository-name}/",
     "scripts": {
         "predeploy": "npm run build",
-        "deploy", "gh-pages -d build"
+        "deploy": "gh-pages -d build"
     }
 }
 ```
