@@ -25,6 +25,8 @@ Code Runner,
 
 #### Shotcut
 
+ [visual studio code shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) 
+
 ```txt
 alt + shift + f : 라인 정렬 
 

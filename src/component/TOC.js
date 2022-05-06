@@ -1,6 +1,9 @@
 import { Component } from 'react'
 
 class TOC extends Component {
+  shouldComponentUpdate(_newprops, _newstate) {
+    return this.props.data !== _newprops.data ? true : false;
+  }
   render() {
     console.log('TOC render...');
 
