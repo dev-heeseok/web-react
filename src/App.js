@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       mode: "welcome",
-      selected_content_id: 1,
+      selected_content_id: 0,
       subject: {
         title: "WEB",
         desc: "World Wide Web!!"
@@ -30,82 +30,92 @@ class App extends Component {
     }
   }
 
-  render() {
-    console.log('App render...');
+  getReadContent() {
+    var _content = null;
 
+    var i = 0;
+    while (i < this.state.content.length) {
+      if (this.state.content[i].id === this.state.selected_content_id) {
+        _content = this.state.content[i];
+        break;
+      }
+      i++;
+    }
+
+    return _content;
+  }
+
+  getContent() {
     var _article = null;
+
     if (this.state.mode === "welcome") {
-      _article =
-        <ReadContent
-          title={this.state.welcome.title}
-          desc={this.state.welcome.desc}
-        ></ReadContent>
+      _article = <ReadContent
+        title={this.state.welcome.title}
+        desc={this.state.welcome.desc}
+      ></ReadContent>
     } else if (this.state.mode === "read") {
-      var i = 0;
-      while (i < this.state.content.length) {
-        if (this.state.content[i].id === this.state.selected_content_id) {
-          _article =
-            <ReadContent
-              title={this.state.content[i].title}
-              desc={this.state.content[i].desc}
-            ></ReadContent>
-          break;
-        }
-        i++;
+      const read_content = this.getReadContent();
+      if (read_content) {
+        _article = <ReadContent
+          title={read_content.title}
+          desc={read_content.desc}
+        ></ReadContent>
       }
     } else if (this.state.mode === 'create') {
-      _article = <CreateContent onSubmit={function (_title, _desc) {
-        var find_last = function () {
-          var last_id = 0;
-          for (const data_item of this.state.content) {
-            last_id = Math.max(last_id, data_item.id);
-          }
-          return last_id;
-        }.bind(this);
-
-        var _id = find_last() + 1;
-        var _content = this.state.content.concat({
-          id: Number(_id),
-          title: _title,
-          desc: _desc
-        });
-
-        this.setState({
-          content: _content
-        });
-      }.bind(this)}></CreateContent>
-    } else if (this.state.mode === 'update') {
-      var find_data = function () {
-        var _data = null;
-        var _id = this.state.selected_content_id;
-        for (const data_item of this.state.content) {
-          if (data_item.id === _id) {
-            _data = data_item;
-            break;
-          }
-        }
-        return _data;
-      }.bind(this);
-
-      var _data = find_data();
-      var _id = this.state.selected_content_id;
-
-      _article = <UpdateContent
-        title={_data.title}
-        desc={_data.desc}
+      _article = <CreateContent
         onSubmit={function (_title, _desc) {
-          console.log('update :', _id, _title, _desc);
-          // var _content = this.state.content.concat({
-          //   id: Number(_id),
-          //   title: _title,
-          //   desc: _desc
-          // });
+          let find_last = function () {
+            let last_id = 0;
+            for (const data_item of this.state.content) {
+              last_id = Math.max(last_id, data_item.id);
+            }
+            return last_id;
+          }.bind(this);
 
-          // this.setState({
-          //   content: _content
-          // });
-        }.bind(this)}></UpdateContent>
+          let _id = find_last() + 1;
+          let _content = this.state.content.concat({
+            id: Number(_id),
+            title: _title,
+            desc: _desc
+          });
+
+          this.setState({
+            content: _content,
+            mode: 'read',
+            selected_content_id: _id
+          });
+        }.bind(this)}
+      ></CreateContent>
+    } else if (this.state.mode === 'update') {
+      const read_content = this.getReadContent();
+      if (read_content) {
+        _article = <UpdateContent
+          title={read_content.title}
+          desc={read_content.desc}
+          onSubmit={function (_title, _desc) {
+            var _content = Array.from(this.state.content);
+            for (let _data of _content) {
+              if (_data.id === this.state.selected_content_id) {
+                _data.title = _title;
+                _data.desc = _desc;
+                break;
+              }
+            }
+
+            this.setState({
+              content: _content,
+              mode: 'read'
+            });
+          }.bind(this)}
+        ></UpdateContent>
+      }
     }
+
+    return _article;
+  }
+
+  render() {
+    console.log('App render...');
 
     return (
       <div className="App">
@@ -114,7 +124,8 @@ class App extends Component {
           sub={this.state.subject.desc}
           onChangePage={function () {
             this.setState({
-              mode: "welcome"
+              mode: "welcome",
+              selected_content_id: 0
             });
           }.bind(this)}
         ></Subject>
@@ -131,13 +142,38 @@ class App extends Component {
 
         <Control
           onChangeMode={function (_mode) {
-            this.setState({
-              mode: _mode
-            });
+            if (_mode === 'delete') {
+              if (window.confirm('really?')) {
+                let _content = Array.from(this.state.content);
+
+                let i = 0;
+                while (i < _content.length) {
+                  if (_content[i].id === this.state.selected_content_id) {
+                    _content.splice(i, 1);
+                    break;
+                  }
+                  i++;
+                }
+
+                const prev_id = this.state.selected_content_id;
+                this.setState({
+                  mode: 'welcome',
+                  content: _content,
+                  selected_content_id: 0
+                });
+
+                if (prev_id !== 0)
+                  alert('delete successful!')
+              }
+            } else {
+              this.setState({
+                mode: _mode
+              });
+            }
           }.bind(this)}
         ></Control>
 
-        {_article}
+        {this.getContent()}
       </div >
     );
   }
