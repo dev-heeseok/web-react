@@ -29,7 +29,7 @@ class TOC extends Component {
           </a>
         </li>)
 
-      i = i + 1;
+      i++;
     }
 
     return (

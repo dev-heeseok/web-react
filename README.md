@@ -136,3 +136,4 @@ npm run deploy
 - [생활코딩 JavaScript Object Oriented Programming](https://youtube.com/playlist?list=PLuHgQVnccGMAMctarDlPyv6upFUUnpSO3)
 - [생활코딩 node.js](https://youtube.com/playlist?list=PLfs-6fkBBhmh17wuQpoO7ZUhueyLa4wSY)
 - [생활코딩 React](https://youtube.com/playlist?list=PLuHgQVnccGMCRv6f8H9K5Xwsdyg4sFSdi)
+- [생활코딩 React 2022 개정판](https://youtube.com/playlist?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7)
