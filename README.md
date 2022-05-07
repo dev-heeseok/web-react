@@ -137,3 +137,7 @@ npm run deploy
 - [생활코딩 node.js](https://youtube.com/playlist?list=PLfs-6fkBBhmh17wuQpoO7ZUhueyLa4wSY)
 - [생활코딩 React](https://youtube.com/playlist?list=PLuHgQVnccGMCRv6f8H9K5Xwsdyg4sFSdi)
 - [생활코딩 React 2022 개정판](https://youtube.com/playlist?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7)
+- [생활코딩 React class vs function style](https://youtube.com/playlist?list=PLuHgQVnccGMCEfBwnNGsJCQDiqSWI-edj)
+- [생활코딩 JavaScript Immutability](https://youtube.com/playlist?list=PLuHgQVnccGMBxNK38TqfBWk-QpEI7UkY8)
+- [생활코딩 Redux](https://youtube.com/playlist?list=PLuHgQVnccGMB-iGMgONoRPArZfjRuRNVc)
+- [생활코딩 React Redux](https://youtube.com/playlist?list=PLuHgQVnccGMDuVdsGtH1_452MtRxALb_7)
