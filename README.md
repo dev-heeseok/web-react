@@ -2,6 +2,21 @@
 
 front-end 스터디를 진행하면서 필요한 샘플 및 웹 어플리케이션 제작을 위한 프로젝트이다.
 
+## Quick Start
+
+package 관리는 npm 을 사용하기 때문에 Node.js 를 우선적으로 설치를 해야한다. Node.js 를 설치하는 방법은 Environment 를 참고하면 된다.
+
+```sh
+# repository 에서 code 를 checkout 한다.
+git clone https://github.com/dev-heeseok/web-react.git
+
+# package install
+npm install
+
+# start
+npm run start
+```
+
 ## Language
 
 React, Node.js, javascript, jQuery, HTML, CSS
@@ -25,6 +40,8 @@ Code Runner,
 
 #### Shotcut
 
+ [visual studio code shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) 
+
 ```txt
 alt + shift + f : 라인 정렬 
 
@@ -38,13 +55,13 @@ NPM(Node Package Manager) 은 자바스크립트 프로그래밍 언어를 위�
 
 정상적으로 프로그램이 설치가 되면 cmd 창을 이용하여 version 확인 및 Node.js 를 이용한 프로그램 테스트가 가능하다.
 
-```cmd
-// version 확인
+```sh
+# version 확인
 node -v
 
-// Node.js 프로그램 테스트
-node  // node 실행
-1 + 1 // node 를 이용한 사칙연산 테스트
+# Node.js 프로그램 테스트
+node  # node 실행
+1 + 1 # node 를 이용한 사칙연산 테스트
 ```
 
 ### create-react-app 패키지 설치
@@ -53,14 +70,14 @@ react 가 다양한 브라우저에서 동작하기 위해서는 webpack, babel 
 
 npm 을 이용하여 create-react-app 패키지를 설치하고 react app 을 생성할 폴더를 지정해주면 개발환경이 구성된다. 개발환경 설정이 정상적으로 수행되면 npm start 명령어를 이용하여 서비스를 실행하여 app 을 확인할 수 있다.
 
-```cmd
-// 패키지 다운
+```sh
+# 패키지 다운
 npm create-react-app
 
-// App Initial Setting
+# App Initial Setting
 create-react-app ${react-app-folder}
 
-// 서비스 실행 후 web browser 를 이용하여 app 실행 (개발자 모드)
+# 서비스 실행 후 web browser 를 이용하여 app 실행
 npm run start
 ```
 
@@ -68,16 +85,20 @@ npm run start
 
 개발자 버전으로 서비스를 실행하게 되면 불필요한 옵션으로 인해 용량이 커지거나 보안적인 문제가 발생할 수 있다. 배포를 위한 Application 은 build 옵션을 이용하여 최적화된 상태로 서비스를 해야만 한다. build 된 application 은 npm 에서 제공하고 있는 serve 패키지를 이용하여 웹 서비스를 수행 할 수 있다.
 
-```cmd
-// Application Build
+```sh
+# Application Build
 npm run build
 
-// Application Service Package Install
+# Application Service Package Install
 npm install -g serve
 
-// Application Service Start
+# Application Service Start
 serve -s ${application-root-folder}
 ```
+
+***serve 사용 시 검토 사항***
+
+Hosting 을 위해 package.js 에 homepage 를 지정한 경우, ```serve -s ${application-root-folder}``` 를 이용하면 화면이 보이지 않을 수 있다. homepage 를 제거 후 서비스를 재실행 하면 화면이 정상적으로 동작한다.  
 
 ## Github Pages Hosting
 
@@ -116,7 +137,7 @@ Settings > Pages 에서 gh-pages branch 를 이용하여 페이지를 호스팅 
 
 Deploy 를 실행하면 Application 의 Build 가 수행된다. Build 가 완료되면 gh-pages branch 가 생성 (branch 가 없다면) 되며 Build 된 Application File 들이 자동으로 Update 된다.
 
-```cmd
+```sh
 npm run deploy
 ```
 
@@ -134,3 +155,8 @@ npm run deploy
 - [생활코딩 JavaScript Object Oriented Programming](https://youtube.com/playlist?list=PLuHgQVnccGMAMctarDlPyv6upFUUnpSO3)
 - [생활코딩 node.js](https://youtube.com/playlist?list=PLfs-6fkBBhmh17wuQpoO7ZUhueyLa4wSY)
 - [생활코딩 React](https://youtube.com/playlist?list=PLuHgQVnccGMCRv6f8H9K5Xwsdyg4sFSdi)
+- [생활코딩 React 2022 개정판](https://youtube.com/playlist?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7)
+- [생활코딩 React class vs function style](https://youtube.com/playlist?list=PLuHgQVnccGMCEfBwnNGsJCQDiqSWI-edj)
+- [생활코딩 JavaScript Immutability](https://youtube.com/playlist?list=PLuHgQVnccGMBxNK38TqfBWk-QpEI7UkY8)
+- [생활코딩 Redux](https://youtube.com/playlist?list=PLuHgQVnccGMB-iGMgONoRPArZfjRuRNVc)
+- [생활코딩 React Redux](https://youtube.com/playlist?list=PLuHgQVnccGMDuVdsGtH1_452MtRxALb_7)
