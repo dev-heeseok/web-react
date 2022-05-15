@@ -1,21 +1,26 @@
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Questions from './pages/Questions'
-import About from './pages/About'
-import NavbarElements from './components/Navbars/NavbarElements';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import Counter from './components/Counter'
 
-function App() {
-  return (
-    <Router>
-      <NavbarElements />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/Questions' element={<Questions></Questions>} />
-        <Route path='/About' element={<About></About>} />
-      </Routes>
-    </Router>
-  );
+const propTypes = {
+
 }
 
-export default App;
+const defaultProps = {
+
+}
+
+export class App extends Component {
+  render() {
+    return (
+      <div>
+        <Counter />
+      </div>
+    )
+  }
+}
+
+App.propTypes = propTypes;
+App.defaultProps = defaultProps;
+
+export default App

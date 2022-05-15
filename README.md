@@ -49,8 +49,11 @@ Bootstrap 을 사용하기 위해 필요한 Module 을 다운 받아야 한다. 
 # react-bootstrap, bootstrap 
 npm install react-bootstrap bootstrap
 
-# react-router-dom (tutorial 용)
-npm install react-router-dom
+# react-router-dom 설치 및 package 추가 (tutorial 용)
+npm install --save react-router-dom
+
+# redux, react-redux 설치 및 package 에 추가 (tutorial 용)
+npm install --save redux react-redux
 
 # gh-pages (deploy 용)
 npm install --save gh-pages
@@ -64,6 +67,15 @@ React 를 개발에 도움을 줄 수 있는 Extension 을 설치하면 개발�
 # Extension 에서 React 를 입력하면 나온다.
 - ES7+ React/Redux/React-Native snippets
 - Simple React Snippets
+```
+
+#### ES7+ React/Redux/React-Native snippets Shortcuts
+
+snippets 에서 자주 사용하는 shortcuts
+
+```sh
+rce # react class export component
+rafce # react arrow-function export component
 ```
 
 ## Reference
