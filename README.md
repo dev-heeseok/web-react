@@ -1,10 +1,37 @@
 # web-react
 
-front-end 스터디를 진행하면서 필요한 샘플 및 웹 어플리케이션 제작을 위한 프로젝트이다.
+web-react tutorial 은 front-end 를 스터디하기 위한 프로젝트이다. tutorial(client app) 을 실행하기 위해서는 server 가 우선적으로 실행되어야 한다. server 는 [web-nodejs tutorial](https://github.com/dev-heeseok/web-nodejs) 을 통해 확인할 수 있다.
+
+## Quick Start
+
+```sh
+# [server - web-nodejs]
+
+## ${server-folder}/.env 생성 후 DATABASE_ACCESS 추가
+## DATABASE_ACCESS 는 mongoDB access_key 이다.
+type nul >> .env
+
+## install node modules
+npm i
+
+## web-nodejs server 실행
+npm run start 
+
+# [client - web-react]
+
+## install node modules
+npm i
+
+## web-react client 실행
+npm run start
+
+## web browser 를 이용하여 url 접속
+localhost:3000
+```
 
 ## Language
 
-React, Node.js, javascript, jQuery, HTML, CSS
+React, Node.js, javascript, HTML, CSS, Bootstrap
 
 ## Environment
 
@@ -18,16 +45,34 @@ React 를 개발할 때에 사용되는 다양한 IDE (Integrated Development En
 
 ```txt
 GitLens,
+GitGraph,
+HTML CSS Support
+HTML Snippets,
+JS JSX Snippets,
+Simple React Snippets,
+REST Client,
 ESLint,
 Code Runner,
+Auto Close Tag,
+Auto Rename Tag,
+ES7+ React/Redux/React...
+```
 
+#### ES7+ React/Redux/React-Native snippets Shortcuts
+
+snippets 에서 자주 사용하는 shortcuts
+
+```sh
+rce # react class export component
+rafce # react arrow-function export component
 ```
 
 #### Shotcut
 
 ```txt
 alt + shift + f : 라인 정렬 
-
+ctrl + ` : terminal toggle
+ctrl + shift + ` : add terminal
 ```
 
 ### Node.js 설치
@@ -64,6 +109,46 @@ create-react-app ${react-app-folder}
 npm run start
 ```
 
+
+### Bootstrap CDN
+
+[React-Bootstrap Getting Started](https://react-bootstrap.github.io/getting-started/introduction/) 를 참고하여 cdn 방식으로 bootstrap stylesheet 를 link 한다.
+
+```html
+<!--index.html 에 cdn link 추가 -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+  crossorigin="anonymous"
+/>
+```
+
+#### Bootstrap CSS import
+
+```js
+// index.js 에 bootstrap.css 를 추가
+import 'bootstrap/dist/css/bootstrap.min.css';
+```
+
+### Module 추가
+
+Bootstrap 을 사용하기 위해 필요한 Module 을 다운 받아야 한다. 설치하는 모듈은 Tutorial 및 Deploy 를 하기 위해 설치하는 것으로 필요에 따라 선택적으로 설치를 하면 된다.
+
+```sh
+# react-bootstrap, bootstrap 
+npm install react-bootstrap bootstrap
+
+# react-router-dom 설치 및 package 추가 (tutorial 용)
+npm install react-router-dom
+
+# redux, react-redux 설치 및 package 에 추가 (tutorial 용)
+npm install redux react-redux
+
+# gh-pages (deploy 용)
+npm install gh-pages
+```
+
 ## How to use
 
 개발자 버전으로 서비스를 실행하게 되면 불필요한 옵션으로 인해 용량이 커지거나 보안적인 문제가 발생할 수 있다. 배포를 위한 Application 은 build 옵션을 이용하여 최적화된 상태로 서비스를 해야만 한다. build 된 application 은 npm 에서 제공하고 있는 serve 패키지를 이용하여 웹 서비스를 수행 할 수 있다.
@@ -78,6 +163,10 @@ npm install -g serve
 // Application Service Start
 serve -s ${application-root-folder}
 ```
+
+***serve 사용 시 검토 사항***
+
+Hosting 을 위해 package.js 에 homepage 를 지정한 경우, ```serve -s ${application-root-folder}``` 를 이용하면 화면이 보이지 않을 수 있다. homepage 를 제거 후 서비스를 재실행 하면 화면이 정상적으로 동작한다.  
 
 ## Github Pages Hosting
 
@@ -120,7 +209,7 @@ Deploy 를 실행하면 Application 의 Build 가 수행된다. Build 가 완료
 npm run deploy
 ```
 
-![image](https://user-images.githubusercontent.com/97526196/165790825-94e44712-f18c-441a-a1b5-674e75b90e5a.png)
+![image](https://user-images.githubusercontent.com/97526196/169828168-c09a1727-6ddc-433b-a348-768a69edccec.png)
 
 ## Sample Codes
 
@@ -134,3 +223,9 @@ npm run deploy
 - [생활코딩 JavaScript Object Oriented Programming](https://youtube.com/playlist?list=PLuHgQVnccGMAMctarDlPyv6upFUUnpSO3)
 - [생활코딩 node.js](https://youtube.com/playlist?list=PLfs-6fkBBhmh17wuQpoO7ZUhueyLa4wSY)
 - [생활코딩 React](https://youtube.com/playlist?list=PLuHgQVnccGMCRv6f8H9K5Xwsdyg4sFSdi)
+- [생활코딩 React 2022 개정판](https://youtube.com/playlist?list=PLuHgQVnccGMCOGstdDZvH41x0Vtvwyxu7)
+- [생활코딩 React class vs function style](https://youtube.com/playlist?list=PLuHgQVnccGMCEfBwnNGsJCQDiqSWI-edj)
+- [생활코딩 JavaScript Immutability](https://youtube.com/playlist?list=PLuHgQVnccGMBxNK38TqfBWk-QpEI7UkY8)
+- [생활코딩 Redux](https://youtube.com/playlist?list=PLuHgQVnccGMB-iGMgONoRPArZfjRuRNVc)
+- [생활코딩 React Redux](https://youtube.com/playlist?list=PLuHgQVnccGMDuVdsGtH1_452MtRxALb_7)
+- [Poiemaweb Bootstrap](https://poiemaweb.com/)
