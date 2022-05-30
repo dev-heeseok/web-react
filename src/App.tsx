@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import Button from "react-bootstrap/Button";
 
 interface IPostUser {
-  fullName: string;
-  userName: string;
+  fullName: string,
+  userName: string,
   email: string;
   password: string;
 }
 
 function App() {
-  const [fullName, setFullName] = useState<string>("");
-  const [userName, setUserName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -19,25 +17,17 @@ function App() {
     event.preventDefault();
 
     const registered: IPostUser = {
-      fullName: fullName,
-      userName: userName,
+      fullName: "empty",
+      userName: "empty",
       email: email,
       password: password,
     };
 
     axios
-      .post("http://localhost:4000/user/signup", registered)
+      .post("/app/signup", registered)
       .then((response) => console.log(response.data));
   };
 
-  const onChangeFullName = (e: any) => {
-    const { value } = e.target;
-    setFullName(value);
-  };
-  const onChangeUserName = (e: any) => {
-    const { value } = e.target;
-    setUserName(value);
-  };
   const onChangeEmail = (e: any) => {
     const { value } = e.target;
     setEmail(value);
@@ -54,22 +44,6 @@ function App() {
           <form onSubmit={onSubmit}>
             <input
               type="text"
-              placeholder="Full Name"
-              onChange={onChangeFullName}
-              name="fullName"
-              value={fullName}
-              className="form-control form-group"
-            />
-            <input
-              type="text"
-              placeholder="User Name"
-              onChange={onChangeUserName}
-              name="userName"
-              value={userName}
-              className="form-control form-group"
-            />
-            <input
-              type="text"
               placeholder="E-mail"
               onChange={onChangeEmail}
               value={email}
@@ -82,11 +56,20 @@ function App() {
               value={password}
               className="form-control form-group"
             />
-            <input
-              type="submit"
-              className="btn btn-danger btn-block"
-              value="Submit"
-            />
+            <>
+              <Button
+                className="btn btn-success btn-block"
+                as="input"
+                type="button"
+                value="Sign in"
+              />
+              <Button
+                className="btn btn-danger btn-block"
+                as="input"
+                type="submit"
+                value="Sign up"
+              />
+            </>
           </form>
         </div>
       </div>
