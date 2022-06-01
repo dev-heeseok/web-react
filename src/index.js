@@ -5,7 +5,6 @@ import App from "./App";
 
 // createStore => configureStore 
 import { configureStore } from '@reduxjs/toolkit';
-import reducers from './reducers'
 import * as actions from './actions'
 import { Provider } from 'react-redux';
 import counter from './reducers/counter';
@@ -19,7 +18,6 @@ const store = configureStore({
 })
 
 const unsubscribe = store.subscribe(() => console.log(store.getState()));
-store.dispatch(actions.increment());
 store.dispatch(actions.increment());
 store.dispatch(actions.decrerment());
 store.dispatch(actions.setColor([200, 200, 200]));
