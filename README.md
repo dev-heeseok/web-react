@@ -1,22 +1,16 @@
 # React-Bootstrap
 
-React-Bootstrap based web application
+tutorial-react-bootstrap 은 react-bootstrap 의 샘플을 학습하기 위한 프로젝트이다. Bootstrap 에 의해 생성된 Components 는./Components 폴더에 추가될 예정이다.
 
 ## Language
 
-React, Bootstrap, JavaScript, jQuery, HTML, CSS
+React, javascript, HTML, CSS, Bootstrap
 
-## Environment
+## Document
 
-### ToolChains
+NavBar 를 이용하여 Detail Page 를 표시하는 Web Pages 를 추가였다. Menu 변경 시 React-Router-Dom 을 이용하여 변경이 필요한 Component 를 갱신하도록 기능을 구현하였다. 
 
-[Create React App](https://en.reactjs.org/docs/create-a-new-react-app.html#create-react-app)
-
-```sh
-cd ${react-bootstrap-folder}
-npx create-react-app . # react environment
-npm run start # app start
-```
+![image](https://user-images.githubusercontent.com/97526196/171402389-54ede272-173b-4693-91c2-8c440bba51b8.png)
 
 ### Bootstrap CDN
 
@@ -32,6 +26,20 @@ npm run start # app start
 />
 ```
 
+## Getting started
+
+```sh
+# install node modules
+npm i
+
+## static server start
+npm start
+
+# link url
+http://localhost:3001
+```
+
 ## Reference
 
+- [Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)
 - [Poiemaweb Bootstrap](https://poiemaweb.com/)
