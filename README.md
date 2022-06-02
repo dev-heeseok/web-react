@@ -145,7 +145,12 @@ npm run deploy
 
 ## Sample Codes
 
-***Unknown***
+| Branch | Description |
+| -- | -- |
+| dev | health record 프로그램 |
+| tutorial-react | react 를 이용한 게시판 프로그램 |
+| tutorial-react-signup | react typescript 를 이용하여 signup 프로그램 |
+| tutorial-react-bootstrap | bootstrap 을 이용한 UI 테스트 프로그램 | 
 
 ## References
 
@@ -160,3 +165,4 @@ npm run deploy
 - [생활코딩 JavaScript Immutability](https://youtube.com/playlist?list=PLuHgQVnccGMBxNK38TqfBWk-QpEI7UkY8)
 - [생활코딩 Redux](https://youtube.com/playlist?list=PLuHgQVnccGMB-iGMgONoRPArZfjRuRNVc)
 - [생활코딩 React Redux](https://youtube.com/playlist?list=PLuHgQVnccGMDuVdsGtH1_452MtRxALb_7)
+- [CRA으로 Typescript 설정하기](https://velog.io/@miiunii/CRACreate-React-App%EC%9C%BC%EB%A1%9C-Typescript-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
