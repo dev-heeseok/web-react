@@ -14,5 +14,8 @@ npm i react-bootstrap bootstrap
 # http 통신을 위한 모듈 설치
 npm i axios http-proxy-middleware
 
+# router 모듈 설치
+npm i react-router-dom @types/react-router-dom
+
 ```
 

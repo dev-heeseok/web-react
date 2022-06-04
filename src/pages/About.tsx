@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
-
-const About = (props: Props) => {
+function About() {
   return (
-    <div>About Pages</div>
-  )
+    <div>
+      <h1>About Page</h1>
+    </div>
+  );
 }
 
-export default About
+export default About;

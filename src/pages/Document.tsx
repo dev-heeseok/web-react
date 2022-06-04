@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
-
-const Document = (props: Props) => {
+function Document() {
   return (
-    <div>Document Pages</div>
-  )
+    <div>
+      <h1>Document Page</h1>
+    </div>
+  );
 }
 
-export default Document
+export default Document;
