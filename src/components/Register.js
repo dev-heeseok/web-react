@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react'
-
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -51,11 +51,33 @@ const Register = () => {
       return;
     }
 
-    try {
+    await axios
+      .post(REGISTER_URL, {
+        userName: user,
+        password: pwd
+      })
+      .then(res => {
+        console.log('register user', res?.data);
 
-    } catch (err) {
+        const registered = res?.data?.success;
+        setSuccess(registered);
 
-    }
+        // clear state and controlled inputs
+        setUser('');
+        setPwd('');
+        setMatchPwd('');
+      })
+      .catch(err => {
+        if (!err?.response) {
+          setErrMsg("No Server Response");
+        } else if (err?.response?.status == 409) {
+          setErrMsg("Username Taken");
+        } else {
+          setErrMsg("Registeration Failed");
+        }
+
+        errRef.current?.focus();
+      });
   }
 
   return (
@@ -63,6 +85,9 @@ const Register = () => {
       {success ? (
         <section>
           <h1>Success!</h1>
+          <p>
+            <a href='#'>Sign In</a>
+          </p>
         </section>
       ) : (
         <section>
