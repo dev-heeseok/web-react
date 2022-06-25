@@ -57,8 +57,6 @@ const Register = () => {
         password: pwd
       })
       .then(res => {
-        console.log('register user', res?.data);
-
         const registered = res?.data?.success;
         setSuccess(registered);
 
@@ -70,7 +68,7 @@ const Register = () => {
       .catch(err => {
         if (!err?.response) {
           setErrMsg("No Server Response");
-        } else if (err?.response?.status == 409) {
+        } else if (err?.response?.status === 409) {
           setErrMsg("Username Taken");
         } else {
           setErrMsg("Registeration Failed");
